@@ -14,11 +14,3 @@ puis cliquez sur clone.
 5eme: run P7V2BatchApplication.
 
 6eme: Dans le navigateur, rentrez l'URL http://localhost:8081 .
-
-Pour la bdd
-
-1er: installer pgAdmin4
-
-2eme: Créer une nouvelle base, nommée patate
-
-4eme: cliquez sur l'onglet restore, cliquez sur filename, cherchez le fichier bdd.sql puis cliquez sur restore.
