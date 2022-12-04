@@ -21,12 +21,15 @@ import java.io.IOException;
 @Log4j2
 public class BatchConfig {
     private final BatchService batchService;
-
-    @Scheduled(cron=" * * * * * SUN") // (s min h j m jourSemaine)
+    private boolean jobEnable = true;
+    @Scheduled(cron=" * 21 12 * * *") // (s min h j m jourSemaine)
     public Job job() throws IOException {
         log.info("in BatchConfig in job method");
+        if (jobEnable==true){
             log.info("in BatchConfig in job method when job is enable");
             batchService.batchProcessing();
+            jobEnable= false;
+         }
         return null;
 
     }

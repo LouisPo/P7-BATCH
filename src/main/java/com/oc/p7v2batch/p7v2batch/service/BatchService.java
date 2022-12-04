@@ -68,15 +68,15 @@ public class BatchService {
 
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("louispoirot38@gmail.com", "xzndhhaespvkkpkj");
+                return new PasswordAuthentication("aehlinepomme@gmail.com", "fyarfjwtdcosywtl");
             }
         });
         String emailBody = "Bonjour " + borrow.getFirstName() + " " + borrow.getLastName() + ","
                 + "\nLe livre " + borrow.getBookTitle() +" de " + borrow.getBookAuthor()
                 + " est à rendre au plus vitre car sa date de retour est dépassée. \nMerci de le rendre au plus vite à la bibliothèque de "
-                + borrow.getLibraryName() +"\nLes horaires d'ouverture sont : " +borrow.getOpeningTime()+"\nCordialement. \nLes Bibliothèques de Louis";
+                + borrow.getLibraryName() +"\nLes horaires d'ouverture sont : " +borrow.getOpeningTime()+"\nCordialement. \nLes Bibliothèques de Katzenheim";
         Message msg = new MimeMessage(session);
-        msg.setFrom(new InternetAddress("louispoirot38@gmail.com", false));
+        msg.setFrom(new InternetAddress("aehlinepomme@gmail.com", false));
 
         msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(borrow.getUsername()));
         msg.setSubject("Date de retour dépassée");
