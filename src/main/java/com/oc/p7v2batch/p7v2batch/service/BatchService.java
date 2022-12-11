@@ -68,13 +68,13 @@ public class BatchService {
 
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("aehlinepomme@gmail.com", "fyarfjwtdcosywtl");
+                return new PasswordAuthentication("louispoirot38@gmail.com", "xzndhhaespvkkpkj");
             }
         });
         String emailBody = "Bonjour " + borrow.getFirstName() + " " + borrow.getLastName() + ","
                 + "\nLe livre " + borrow.getBookTitle() +" de " + borrow.getBookAuthor()
                 + " est à rendre au plus vitre car sa date de retour est dépassée. \nMerci de le rendre au plus vite à la bibliothèque de "
-                + borrow.getLibraryName() +"\nLes horaires d'ouverture sont : " +borrow.getOpeningTime()+"\nCordialement. \nLes Bibliothèques de Katzenheim";
+                + borrow.getLibraryName() +"\nLes horaires d'ouverture sont : " +borrow.getOpeningTime()+"\nCordialement. \nLes Bibliothèques de Louis";
         Message msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress("aehlinepomme@gmail.com", false));
 
