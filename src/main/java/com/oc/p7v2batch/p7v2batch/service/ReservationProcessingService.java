@@ -62,7 +62,7 @@ public class ReservationProcessingService {
 
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("aehlinepomme@gmail.com", "fyarfjwtdcosywtl");
+                return new PasswordAuthentication("louispoirot38@gmail.com", "xzndhhaespvkkpkj");
             }
         });
         String emailBody = "Bonjour " + reservationBean.getFirstName() + " " + reservationBean.getLastName() + ","
@@ -72,7 +72,7 @@ public class ReservationProcessingService {
                 + ". Passé ce délai votre réservation sera automatiquement annulée!"
                 + "\n Les horaires d'ouverture sont : " + reservationBean.getOpeningTime() + "\nCordialement. \nLes Bibliothèques de Louis";
         Message msg = new MimeMessage(session);
-        msg.setFrom(new InternetAddress("aehlinepomme@gmail.com", false));
+        msg.setFrom(new InternetAddress("louispoirot38@gmail.com", false));
 
         msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(reservationBean.getUsername()));
         msg.setSubject("Le livre que vous avez réservé est disponible au retrait");

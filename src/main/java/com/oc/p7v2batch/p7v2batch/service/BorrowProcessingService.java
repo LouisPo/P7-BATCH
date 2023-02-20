@@ -24,8 +24,7 @@ import java.util.Properties;
 @Log4j2
 public class BorrowProcessingService {
     private final BorrowRetrieverUtil borrowRetrieverUtil;
-
-
+    
     public void borrowBatchProcessing() throws IOException {
         log.info("in borrowBatchProcessing in batchProcessing method");
         List<BorrowBean> allBorrowList = borrowRetrieverUtil.getAllBorrows();
@@ -68,7 +67,7 @@ public class BorrowProcessingService {
         });
         String emailBody = "Bonjour " + borrow.getFirstName() + " " + borrow.getLastName() + ","
                 + "\nLe livre " + borrow.getBookTitle() +" de " + borrow.getBookAuthor()
-                + " est à rendre au plus vitre car sa date de retour est dépassée. \nMerci de le rendre au plus vite à la bibliothèque de "
+                + " est à rendre au plus vite car sa date de retour est dépassée. \nMerci de le rendre au plus vite à la bibliothèque de "
                 + borrow.getLibraryName() +"\nLes horaires d'ouverture sont : " +borrow.getOpeningTime()+"\nCordialement. \nLes Bibliothèques de Louis";
         Message msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress("louispoirot38@gmail.com", false));
