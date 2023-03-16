@@ -5,7 +5,11 @@ import com.oc.p7v2batch.p7v2batch.util.BorrowRetrieverUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import javax.mail.*;
 import javax.mail.internet.AddressException;
@@ -36,6 +40,15 @@ public class BorrowProcessingService {
             if (today.compareTo(returnDate) > 0) {
                 log.info("in borrowBatchProcessing in batchProcessing method in isOutdated from user " + borrow.getUsername());
                 try {
+                    borrow.setOutdated(true);
+                    RestTemplate restTemplate = new RestTemplate();
+
+                    HttpHeaders headers = new HttpHeaders();
+                    headers.setContentType(MediaType.APPLICATION_JSON);
+                    HttpEntity<BorrowBean> request = new HttpEntity<>(borrow, headers);
+                    restTemplate.put("http://localhost:8083/api/borrows/" + borrow.getId(), borrow);
+
+
                     sendmail(borrow);
                 } catch (AddressException e) {
                     // TODO Auto-generated catch block
